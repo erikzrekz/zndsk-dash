@@ -1,0 +1,43 @@
+DOCTYPE(html)
+html(ng-app="zndskDash")
+  head
+    meta(charset='utf8')
+    base(href='/')
+    title ZNDSK DASH
+    link(rel='stylesheet' type='text/css' href='/css/app.css')
+    link(rel='stylesheet' type='text/css' href='/bower_components/bootstrap/dist/css/bootstrap.min.css')
+    link(rel='stylesheet' type='text/css' href='/bower_components/font-awesome/css/font-awesome.min.css')
+    link(rel='stylesheet' type='text/css' href='https://fonts.googleapis.com/css?family=Open+Sans:400,300italic,400italic,700,800,800italic' )
+
+    script(type='text/javascript' src='/bower_components/angular/angular.min.js')
+    script(type='text/javascript' src='/bower_components/angular-route/angular-route.min.js')
+    script(type='text/javascript' src='/bower_components/angular-resource/angular-resource.min.js')
+    script(type='text/javascript' src='/bower_components/moment/min/moment.min.js')
+
+    script(type='text/javascript' src='app/app.module.js')
+    script(type='text/javascript' src='app/app.config.js')
+    script(type='text/javascript' src='app/services.api.js')
+    script(type='text/javascript' src='app/services.filter.js')
+    script(type='text/javascript' src='app/phoneDash/phoneDash.controller.js')
+
+  body.container
+    nav.navbar.navbar-fixed-top
+      div.row
+        div.col-md-4.hidden-sm.hidden-xs
+        div.col-md-2.col-sm-6.col-xs-6
+            div.nav-el
+                em.lead.italics
+                    span ZNDSK
+                    span.dash &nbsp;/&nbsp;
+                    span DASH
+
+        div.col-md-2.col-sm-6.col-xs-6
+            p.text-right.nav-el
+                a(href="https://developer.zendesk.com/rest_api/docs/voice-api/voice" target="_blank")
+                    i.fa.fa-file-code-o.fa-2x
+                span &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                a(href="https://github.com/erikzrekz/zndsk-dash" target="_blank")
+                    i.fa.fa-github-alt.fa-2x
+        div.col-md-4.hidden-sm.hidden-xs
+
+    block body

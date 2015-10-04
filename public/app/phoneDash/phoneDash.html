@@ -1,0 +1,73 @@
+<div class="row text-center main-dash ">
+
+		<div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 bg-primary">
+			<h4>Total Calls</h4>
+			<h2>
+			{{dash.totalCalls}}
+			</h2>
+		</div>
+		<div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
+			<h4>Waiting</h4>
+			<h2 ng-class="{ 'text-danger' : dash.currentQueue.calls_waiting > 0 }">
+			{{dash.currentQueue.calls_waiting}}
+			</h2>
+		</div>
+		<div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
+			<h4>Avg Wait</h4>
+			<h2>
+			{{dash.currentQueue.average_wait_time}}
+			<sup class="seconds">sec</sup>
+			</h2>
+
+		</div>
+		<div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
+			<h4>Long Wait</h4>
+			<h2>
+			{{dash.currentQueue.longest_wait_time}}
+			<sup class="seconds">sec</sup>
+			</h2>
+		</div>
+
+</div>
+<div class="row" style="margin-top:30px;">
+	<div class="col-md-3 bordered agents"
+		 ng-class="{ 'border-warning' : agent.status_code === 'wrap_up',
+		 			 'border-default' : agent.status_code === 'on_call',
+		 			 'border-success' : agent.status_code === 'available',
+		 			 'border-muted': agent.status_code === 'not_available' }"
+		 ng-repeat="agent in dash.agents | orderBy: '-available_time'"
+		 >
+
+		<div class="row">
+			<div class="col-md-12">
+				<h2>{{agent.name}}
+				<i ng-show="agent.status_code === 'available'" class="fa fa-check-circle-o"></i>
+				<span class="phone-pulse" ng-show="agent.status_code === 'on_call'">
+					<i class="fa fa-volume-off"></i>
+					<i id="pulse1" ng-show="agent.status_code === 'on_call'" class="fa fa-volume-down"></i>
+					<i id="pulse2" ng-show="agent.status_code === 'on_call'" class="fa fa-volume-up"></i>
+				</span>
+				<i ng-show="agent.status_code === 'wrap_up'" class="fa fa-spinner fa-spin"></i>
+				<i ng-show="agent.status_code === 'not_available'" class="fa fa-user-times"></i>
+				</h2>
+
+			</div>
+			<div class="col-md-12 agent-metrics">
+				<div style="color: black;">
+					{{agent.available_time | secondsFormat }}
+				</div>
+				<div class="">
+					<div>
+						<span class="label label-success label-as-badge">{{agent.calls_accepted}}</span>
+					</div>
+					<div>
+					    <span class="label label-warning label-as-badge">{{agent.calls_denied}}</span>
+					</div>
+					<div>
+					    <span class="label label-danger label-as-badge">{{agent.calls_missed}}</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
