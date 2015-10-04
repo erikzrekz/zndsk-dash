@@ -3,7 +3,8 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "postinstall": "./node_modules/bower/bin/bower install"
   },
   "dependencies": {
     "async": "^1.4.2",
@@ -15,6 +16,7 @@
     "moment": "^2.10.6",
     "morgan": "^1.0.0",
     "node-zendesk": "^1.1.5",
-    "underscore": "^1.8.3"
+    "underscore": "^1.8.3",
+    "bower": "1.5.3"
   }
 }
