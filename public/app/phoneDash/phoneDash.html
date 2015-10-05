@@ -39,7 +39,7 @@
 		 >
 
 		<div class="row">
-			<div class="col-md-12">
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 				<h2>{{agent.name}}
 				<i ng-show="agent.status_code === 'available'" class="fa fa-check-circle-o"></i>
 				<span class="phone-pulse" ng-show="agent.status_code === 'on_call'">
@@ -52,7 +52,7 @@
 				</h2>
 
 			</div>
-			<div class="col-md-12 agent-metrics">
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 agent-metrics">
 				<div style="color: black;">
 					{{agent.available_time | secondsFormat }}
 				</div>
