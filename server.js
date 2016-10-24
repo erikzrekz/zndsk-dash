@@ -17,7 +17,7 @@ var app = module.exports = express();
 // all environments
 app.set('port', config.port);
 app.set('views', __dirname + '/views');
-app.set('view engine', 'jade');
+app.set('view engine', 'pug');
 app.use(morgan('dev'));
 app.use(methodOverride());
 app.use(bodyParser.json({limit: '50mb'}));
