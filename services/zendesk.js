@@ -17,7 +17,7 @@ var zendeskVoice = require('node-zendesk').createClient({
 
 var getCurrentAgentActivity = function(callback) {
   var agents = [];
-  var agentName;
+  var agentID;
 
   zendeskVoice.agentactivity.show(function(err, res, currentAgentActivity) {
     if (err || !res) {
@@ -28,8 +28,8 @@ var getCurrentAgentActivity = function(callback) {
     } 
 
     for (var x in currentAgentActivity.agents_activity) {
-      agentName = currentAgentActivity.agents_activity[x].name;
-      if (!(config.zendesk.agentsExcludeList.indexOf(agentName) > -1)) {
+      agentID = currentAgentActivity.agents_activity[x].agent_id;
+      if (config.zendesk.agentsIncludeList.indexOf(agentID) != -1) {
         currentAgentActivity.agents_activity[x].name = currentAgentActivity.agents_activity[x].name.split(' ')[0];
         agents.push(currentAgentActivity.agents_activity[x]);
       }
