@@ -16,4 +16,4 @@
 
 - In config.js, if you have `mktg: true`, dummy data will be displayed instead of attempting to make requests to Zendesk.
 
-- In config.js, you can populate the agentsExcludeList array with agents you would not like to display on dashboard.
+- In config.js, you can populate the `agentsIncludeList` array with agent_ids that you would like to display on your dashboard.
